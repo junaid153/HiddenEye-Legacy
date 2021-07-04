@@ -1,3 +1,10 @@
+x = input ("Enter your name: ")
+n = input ("Enter pass: ")
+i = input ("Enter the developer name as junaid: ")
+
+print ("you are " + x)
+print (n + " is the pass ")
+print (" devloper is " + i)
 #
 #    HiddenEye  Copyright (C) 2021  DarkSec https://github.com
 #    This program comes with ABSOLUTELY NO WARRANTY; for details read LICENSE.
